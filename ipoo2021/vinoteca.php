@@ -1,7 +1,8 @@
 <?php
-
-
 /*
+ * Alumno: Soto Micaela Yanet
+ * Legajo: FAI-1391
+ *
  * Realizar el diseño y la correspondiente implementación en PHP de un script vinotecaNqn.php del siguiente enunciado:
 
 
@@ -12,53 +13,62 @@
  Subir a su cuenta GitHub la resolución del Trabajo Practico de Repaso.
  Fecha de entrega 19/03/2021
  */
-/**
- * ------------------GENERA LA ESTRUCTURA DE UN ARREGLO CON 3 VARIEDADES DE VINO
- * @return array string[][]|number[][]
- */
-function vinos(){
+
+
+function variedadVino() {
     $variedadVino = array(
         "Malbec" => array(
-            "Variedad " => "tinto",
-            "Cantidad de botella " => 5,
-            "Anio de produccion " => 2010,
-            "Precio por unidad " => 807.76
-        ),
-        
-        "Cabernet Souvignon" => array(
-            "Variedad " => "tinto",
-            "Cantidad de botella " => 45,
-            "Anio de produccion " => 2009,
-            "Precio por unidad " => 3450
-        ),
-        
+            ["Variedad " =>"Tinto",
+                "Cantidad de botella " => 5,
+                "Anio de produccion " => 2010,
+                "Precio por unidad " => 807.76],
+            
+            ["Variedad " =>"Rosado",
+                "Cantidad de botella " => 20,
+                "Anio de produccion " => 2000,
+                "Precio por unidad " => 2085.50]),
+        "Cabernet Sauvignon" => array(
+            ["Variedad " =>"Blanco",
+                "Cantidad de botella " => 45,
+                "Anio de produccion " => 2015,
+                "Precio por unidad " => 456.7],
+            
+            ["Variedad " =>"Blanco",
+                "Cantidad de botella " => 3,
+                "Anio de produccion " => 2010,
+                "Precio por unidad " => 1965.6]),
         "Merlot" => array(
-            "Variedad " => "tinto",
-            "Cantidad de botella " => 10,
-            "Anio de produccion " => 2000,
-            "Precio por unidad " => 2089.50
-        )
+            ["Variedad " =>"Tinto",
+                "Cantidad de botella " => 15,
+                "Anio de produccion " => 2017,
+                "Precio por unidad " => 1067.76],
+            
+            ["Variedad " =>"Blanco",
+                "Cantidad de botella " => 27,
+                "Anio de produccion " => 2020,
+                "Precio por unidad " => 2045.50])
     );
     
     return $variedadVino;
 }
 /**
- * ----------------------Recorrey muestra el arreglo de la vinoteca
- * @param array $arregloVino
+ * 
+ * @param  $vinos
  */
-function recorreArray($arregloVino) {
-    
-    foreach ($arregloVino as $arregloVino =>$detalle){
-        echo "\n".$arregloVino."\n";
-        foreach ($detalle as $indice =>$valor){
-            echo $indice.":".$valor."\n";
+function main($vinos) {
+    foreach ($vinos as $vinos =>$detalle){//----Recorre el primer array
+        echo "\n".$vinos."\n";
+        foreach ($detalle as $valor){//Recorre el segundo array
+            foreach ($valor as $key=>$val){//Recorre el tercer array
+                echo $key.":".$val."\n";
+            }
+            echo"\n";
             
         }
     }
 }
+//Programa Principal
 
 
-// ---------------------------PROGRAMA PRINCIPAL
-
-$arrVino = vinos();
-echo recorreArray($arrVino);
+$arrVino= variedadVino();
+echo main($arrVino);
